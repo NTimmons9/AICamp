@@ -96,6 +96,3 @@ with open("/content/annotations.json", "w") as json_file:  # Update with desired
     json.dump(annotation_data, json_file)
 
 print(annotation_data["images"],'\n',annotation_data["annotations"], "\n", annotation_data["categories"])
-
-1326-1022
-
