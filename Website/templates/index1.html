@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Outsiden't X-Ray Weapon Detector</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="static/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="https://www.ai-camp.org"><img src="static/assets/img/navbar-logo.svg" alt="..." /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#About">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#Timeline">Timeline</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="/results">Test</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->  
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-heading test-uppercase">Welcome To Our X-Ray Weapon Detector!</div>
+                <div class="masthead-subheading">Please upload a photo below</div>
+                <form method="post" enctype="multipart/form-data"> 
+                <input type=file name=file id=FileUploader style="display:none;">  
+                <label class="btn btn-primary btn-x2 text-uppercase" for="FileUploader">select image</label> 
+                </br>
+                </br>
+                  <button class="btn btn-primary btn-xl text-uppercase" type="submit" value =Upload href="/results">Upload</button>
+                </form>
+            </br>
+              <div class="container" id="SideImage">
+                Don't have an image?
+              </br>
+              </br>
+                <button class="btn btn-primary btn-xl text-uppercase" type=button onclick="window.open('https://drive.google.com/drive/u/0/folders/1hBo8bHPK7Gw9ck9wVcAVCYu36V6OPFcb','_blank')" id="imageButton"> Use one of these </button>
+              <!-- <form method=post enctype=multipart/form-data>
+                            <font color="white">
+                                <input type=file name=file>
+                                <input type=submit value=Upload>
+                            </font>
+              </form> -->
+              </div>
+            </div>
+        </header>
+        <!-- About-->
+        <section class="page-section" id="About">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">About</h2>
+                    <h3 class="section-subheading text-muted">Just a little about our project.</h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="btn btn-primary fa-stack-2x text-uppercase"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Model</h4>
+                        <p class="text-muted">We used YOLOv8, a ViT (Vision Transformer) for creating a trained object detection model. YOLOv8 works as a backbone for R-CNN models, consistent with many other object detection models. The Python scripting was based off of a basic model that RoboFlow provided as a standard object detection model. For our model, we trained it off of Google Colab, where we were able to collect data on the mAP (Mean Average Precision), loss rate, and the confusion matrix detailing what we could improve.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="btn btn-primary fa-stack-2x text-uppercase"></i>
+                            <i class="fa-solid fa-database fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Data</h4>
+                        <p class="text-muted">We found a large database of X Ray images that were perfect for our project. But unfortunately they were annotated in an unroboflow friendly format. We ended up having to create a script to convert them to a different format. We didn't have enough images of shuriken and knives so we had to utilize some images from the dataset that were unannotated entirely in order to end up with usable data.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="btn btn-primary fa-stack-2x text-uppercase"></i>
+                            <i class="fa-solid fa-circle-exclamation fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Problems</h4>
+                        <p class="text-muted">We faced many problems in developing our software. In roboflow, exists a feature that allows you to upload pre existing image annotations, but our annotations were not in the format that roboflow accepts, so we had to make a program to convert our existing annotations into the correct .json format. Another problem had to do with our project name “Outsiden’t”. Because of the apostrophe, when we tried to import the Outsiden’t data folder into colab, many errors occured, and we had to remove the apostrophe from the name. Lastly, we noted underrepresented categories, shurikens and knives. We were able to fix this using extra data from our datasets.
+</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Portfolio</h2>
+                    <h3 class="section-subheading text-muted">This is what we worked with</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img      width="400" 
+     height="400" class="img-fluid" src="static/assets/img/portfolio/1_484x363.png" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Guns</div>
+                                <div class="portfolio-caption-subheading text-muted">Annotated</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 2-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img      width="400" 
+     height="400" class="img-fluid" src="static/assets/img/portfolio/2_484x363.png" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Confusion Matrix</div>
+                                <div class="portfolio-caption-subheading text-muted">Labled</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Portfolio item 3-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img      width="400" 
+     height="400" class="img-fluid" src="static/assets/img/portfolio/3_484x363.png" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Knives</div>
+                                <div class="portfolio-caption-subheading text-muted">Annotated</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <!-- Portfolio item 4-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img width="400" height="400" class="img-fluid" src="static/assets/img/portfolio/4_484x363.png" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Razors</div>
+                                <div class="portfolio-caption-subheading text-muted">Annotated</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <!-- Portfolio item 5-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img      width="400" 
+     height="400" class="img-fluid" src="static/assets/img/portfolio/5_484x363.png" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Feedback</div>
+                                <div class="portfolio-caption-subheading text-muted">Data</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- Portfolio item 6-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img      width="400" 
+     height="400" class="img-fluid" src="static/assets/img/portfolio/6_484x363.png" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Shurikens</div>
+                                <div class="portfolio-caption-subheading text-muted">Annotated</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Timeline-->
+        <section class="page-section" id="Timeline">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Timeline</h2>
+                    <h3 class="section-subheading text-muted">A short timeline of our project</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="static/assets/img/portfolio/1 (1) (1).png" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Week 1</h4>
+                                <h4 class="subheading">Data Collection</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">In pursuance of suitable, X-Ray images to comprise our dataset, multiple avenues of collection were tested. We began with attempting to manually select photos from google images, which was proven ultimately futile due to the minimum dataset size requirement expected for viability. Next, we attempted to utilize a webscraper to automatically collect images, but this idea was eventually scrapped due to the lack of suitable images. In the end, we found a <a href ="https://domingomery.ing.puc.cl/material/gdxray/" target = "_blank"> fitting database</a> and selected baggages as our dataset.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="static/assets/img/portfolio/2 (1) (1).png" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Week 2</h4>
+                                <h4 class="subheading">Training Our Model</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">In accordance with training our model, a variety of techniques were experimented with. To start, we attempted to use Google Colab with preexisting models, found from various sites, however some issues arose, leading to attempting other models. The next model used was through Roboflow itself, which we were able to get working. In order to test the accuracy of this model against others, we returned to Google Colab in an attempt to test and compare the models, ultimately choosing the Roboflow model due to its higher accuracy in accordance with our goal.</p></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="static/assets/img/about/2.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Week 3</h4>
+                                <h4 class="subheading">Front-End Development</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">During this week we worked on developing this website and integrating the backend programs into it. We were able to source a template and then edit it to our desired design, and fill in blank spaces with information about what we have done. The largest challenge was integrating the AI into the website, and making in HTML file display other more advanced code comes at the challenge of integrating other code scripts.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="static/assets/img/about/final2.png" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Final Project</h4>
+                                <h4 class="subheading">X-Ray Weapon Detector</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">In the end, we were able to construct a product that allows for user image input, which can return the image with bounding boxes, detecting whether one of the four dangerous objects: gun, razor, knife, or shuriken, was detected in frame, with potential future plans to improve the viability of the model further or expand the number of detectable item types.</p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                It Was
+                                <br />
+                                Quite
+                                <br />
+                                Fun!
+                            </h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+<!-- Team-->
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">The Team</h2>
+            <h3 class="section-subheading text-muted">They don't go outside</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-6"> 
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="static/assets/img/team/1.jpg" alt="..." />
+                    <h4>Niko Timmons</h4>
+                    <p class="text-muted">Developer</p>
+                    <a class="btn btn-dark btn-social mx-2" href="https://github.com/NTimmons9" aria-label="Your GitHub Profile">
+  <i class="fab fa-github"></i>
+</a>
+                    <a class="btn btn-dark btn-social mx-2" href="http://www.itsgonnablow.org/" aria-label="itsgonnablow.org"><i class="fa-solid fa-robot"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/niko-timmons-742b15189/" aria-label="https://www.linkedin.com/in/niko-timmons-742b15189/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6"> 
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="static/assets/img/team/2.png" alt="..." />
+                    <h4>Maximillian Hsu</h4>
+                    <p class="text-muted">Developer</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6"> 
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="static/assets/img/team/3.png" alt="..." />
+                    <h4>Anthony Hartman</h4>
+                    <p class="text-muted">Developer</p>
+
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.youtube.com/watch?v=QiKZYt9070U" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-youtube"></i></a>
+
+                </div>
+            </div>
+            <div class="col-lg-6"> 
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="static/assets/img/team/4.PNG" alt="..." />
+                    <h4>Kelley Cassin-Skulte</h4>
+                    <p class="text-muted">Developer</p>
+                </div>
+            </div>
+            <div class="col-lg-12"> 
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="static/assets/img/team/5.png" alt="..." />
+                    <h4>Chinmay Ranganath</h4>
+                    <p class="text-muted">Counselor</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Made during 2023 AI Camp</p></div>
+        </div>
+    </div>
+</section> 
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    <h3 class="section-subheading text-muted">We won't respond</h3>
+                </div>
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- Name input-->
+                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            <div class="form-group">
+                                <!-- Email address input-->
+                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <div class="form-group mb-md-0">
+                                <!-- Phone number input-->
+                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-textarea mb-md-0">
+                                <!-- Message input-->
+                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center text-white mb-3">
+                            <div class="fw-bolder">Thank you for your input</div>
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="button" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', target='_blank')">Send Message</button></div>
+                </form>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; AI Camp 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="static/assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Guns</h2>
+                                    <p class="item-intro text-muted">Not allowed on planes</p>
+                                    <img class="img-fluid d-block mx-auto" src="static/assets/img/portfolio/1_484x363.png" alt="static/assets/img/portfolio/1.jpg" />
+                                    <p>This was one of the four objects that we trained our model to classify. There are several different types of guns at different orientations in our dataset.</p>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="static/assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Confusion Matrix</h2>
+                                    <p class="item-intro text-muted">Not too confusing</p>
+                                    <img class="img-fluid d-block mx-auto" src="static/assets/img/portfolio/2_484x363.png" alt="..." />
+                                    <p>The confusion matrix shows how each of our objects were classified, and if they were mixed up with eachother by our AI. a diagonal line starting at the top left is desirable.</p>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="static/assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Knives</h2>
+                                    <p class="item-intro text-muted">Small, without cast handle, and smooth are allowed on planes</p>
+                                    <img class="img-fluid d-block mx-auto" src="static/assets/img/portfolio/3_484x363.png" alt="..." />
+                                    <p>Knives are the second group that we thought of adding to our dataset, and we have about 4 diffent types applied. The knives often get mixed up with dark spaces.</p>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 4 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="static/assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Razors</h2>
+                                    <p class="item-intro text-muted">I'm pretty sure these are allowed on planes in reality</p>
+                                    <img class="img-fluid d-block mx-auto" src="static/assets/img/portfolio/4_484x363.png" alt="..." />
+                                    <p>This was the third item that we used in our dataset, there were many strange orientations, especially in soda cans and wallets.</p>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 5 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="static/assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Feedback</h2>
+                                    <p class="item-intro text-muted">Tiny but monumental</p>
+                                    <img class="img-fluid d-block mx-auto" src="static/assets/img/portfolio/5_484x363.png" alt="..." />
+                                    <p>Although it looks pretty useless, this data assisted us in fine-tuning our AI to have better predictions. There are several factors to consider, the mAP (Mean Average Precision [or average correctness]) and the loss rate used in getting a result being two factors.</p>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 6 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="static/assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">Shurikens</h2>
+                                    <p class="item-intro text-muted">What?</p>
+                                    <img class="img-fluid d-block mx-auto" src="static/assets/img/portfolio/6_484x363.png" alt="..." />
+                                    <p>Shurikens happened to be in a large dataset that we sourced from, so we decided to add them.</p>
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../static/js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
